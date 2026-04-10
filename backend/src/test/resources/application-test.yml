@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: isDeleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+jwt:
+  secret: TestSecretKeyForJWTTokenGenerationMustBeVeryLongAndSecure123456789
+  expiration: 86400000
+
+file:
+  upload:
+    path: ./test-uploads
+    allowed-types: jpg,jpeg,png,gif,bmp,webp
+    max-size: 10485760
