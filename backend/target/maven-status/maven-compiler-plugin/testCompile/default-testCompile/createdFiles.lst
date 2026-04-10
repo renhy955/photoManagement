@@ -1,0 +1,5 @@
+com\photo\album\controller\AuthControllerTest.class
+com\photo\album\service\PhotoServiceTest.class
+com\photo\album\service\AlbumServiceTest.class
+com\photo\album\service\AuthServiceTest.class
+com\photo\album\controller\AlbumControllerTest.class
