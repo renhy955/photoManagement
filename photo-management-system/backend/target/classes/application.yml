@@ -1,0 +1,51 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: photo-management
+  
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 20MB
+      max-request-size: 100MB
+  
+  datasource:
+    url: jdbc:mysql://localhost:3306/photo_management?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    serialization:
+      write-dates-as-timestamps: false
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: isDeleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  mapper-locations: classpath*:/mapper/**/*.xml
+
+# JWT配置
+jwt:
+  secret: photoManagementSecretKey2024ForJwtTokenGeneration
+  expiration: 86400000  # 24小时
+
+# 文件上传配置
+upload:
+  path: ./uploads
+  allowed-types: image/jpeg,image/png,image/gif,image/webp
+  max-size: 20971520  # 20MB
+
+# 跨域配置
+cors:
+  allowed-origins: http://localhost:5173
